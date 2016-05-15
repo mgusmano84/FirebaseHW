@@ -15,24 +15,66 @@
   	<header>
   		<h1>Ride The Train!</h1>
   	</header>
-  	<div class="row">
-  		<div class="col-md-3 trainNameFill">
-  		<div class="col-md-3 DestinationFill">
-  		<div class="col-md-2 FreqFill">
-  		<div class="col-md-2 NextFill">
-  		<div class="col-md-2 MinAwayFill">
+  	<div id="firstContainer">
+  		<div class="row">
+		  	<div class="col-md-3 bottomHeader"><h2>Train Time</h2></div>
+		  	<div class="col-md-3 bottomHeader"><h2>Destination</h2></div>
+		  	<div class="col-md-2 bottomHeader"><h2>Duration (min)</h2></div>
+		  	<div class="col-md-2 bottomHeader"><h2>Next Arrival</h2></div>
+		  	<div class="col-md-2 bottomHeader"><h2>Minutes Away</h2></div>
+	  	</div>
+	  	<br>
+	  	<div class="row">
+		  	<div class="col-md-3 trainNameFill"></div>
+		  	<div class="col-md-3 DestinationFill"></div>
+		  	<div class="col-md-2 FreqFill"><h3>sadsadsad</h3></div>
+		  	<div class="col-md-2 NextFill"></div>
+		  	<div class="col-md-2 MinAwayFill"></div>
+		  </div>
   	</div>
+  	<div id="secondContainer">
+		<div id="first">
+			<form>
+				<div class="form-group">
+			    <label for="exampleInputName2">Train Name</label>
+			    <input type="text" class="form-control AddNameHere" id="exampleInputName2" placeholder="The Express">
+			  	</div>
+			</form>
+		</div>
+		<div id="second">
+			<form>
+				<div class="form-group">
+			    <label for="exampleInputName2">Destination</label>
+			    <input type="text" class="form-control AddRoleHere" id="exampleInputName2" placeholder="Seattle">
+			  	</div>
+			</form>
+		</div>
+		<div id="third">
+			<form>
+				<div class="form-group">
+			    <label for="exampleInputName2">First Train Time (HH:mm -military time)</label>
+			    <input type="text" class="form-control AddStartHere" id="exampleInputName2" placeholder="13:50 PM">
+			  	</div>
+			</form>
+		</div>
+		<div id="forth">
+			<form>
+				<div class="form-group">
+			    <label for="exampleInputName2">Duration (min)</label>
+			    <input type="text" class="form-control AddRateHere" id="exampleInputName2" placeholder="105">
+			  	</div>
+			</form>
+		</div>
+		<button type="button" class="btn btn-primary clickHere">Submit</button>
+	</div>
 </div>
 
 
 
 
-</div>
 
 
 
-
-
-<script type="text/javascript" src="java.js"></script>
+<script type="text/javascript" src="assets/javascript/logic.js"></script>
 </body>
 </html>
