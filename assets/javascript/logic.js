@@ -10,10 +10,23 @@ $(document).ready(function () {
 
 	$(".clickHere").on("click", function() {
 		trainname= $('.addTrain').val().trim();
-		trainname= $('.addDestination').val().trim();
-		trainname= $('.addFirst').val().trim();
-		trainname= $('.addDuration').val().trim();
+		destination= $('.addDestination').val().trim();
+		firstTime= $('.addFirst').val().trim();
+		duration= $('.addDuration').val().trim();
 
+		console.log(trainname);
+		console.log(destination);
+		console.log(firstTime);
+		console.log(duration);
+
+		inputInfo.push({
+			Name: trainname,
+			Destination: destination,
+			FirstTrainTime: firstTime,
+			Duration: duration,
+			dateadded: Firebase.ServerValue.TIMESTAMP,
+		})
+	});
 
 
 
