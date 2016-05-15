@@ -17,11 +17,17 @@ h1 {
 }
 
 .bottomHeader {
+	
+}
+
+.rowbot {
 	border-bottom: 4px solid blue;
+
 }
 
 h2 {
 	font-size: 20px;
+	
 }
 h3 {
 	padding-top: 5px;
