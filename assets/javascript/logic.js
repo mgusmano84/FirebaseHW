@@ -40,14 +40,23 @@ $(document).ready(function () {
 		console.log(childSnapshot.val().FirstTrainTime);
 		console.log(childSnapshot.val().Duration);
 
-		$('.trainNameFill').append("<div class='well'>"+
-			childSnapshot.val().Name+"</div>");
-		$('.DestinationFill').append("<div class='well'>"+
-			childSnapshot.val().Destination+"</div>");
-		$('.FreqFill').append("<div class='well'>"+
-			childSnapshot.val().FirstTrainTime+"</div>");
-		$('.NextFill').append("<div class='well'>"+
-			childSnapshot.val().Duration+"</div>");
+		$('.createData').append("<div class='col-md-3'>"+
+			childSnapshot.val().Name+"</div><div class='col-md-3'>"+
+			childSnapshot.val().Destination+"</div><div class='col-md-2'><span id='age'> "+
+			childSnapshot.val().FirstTrainTime+" </div><div class='col-md-2'>"+
+			childSnapshot.val().Duration+"</div><div class='col-md-2'>"+
+			"test"+"</div>");
+
+
+
+		// $('.trainNameFill').append("<div class='well'>"+
+		// 	childSnapshot.val().Name+"</div>");
+		// $('.DestinationFill').append("<div class='well'>"+
+		// 	childSnapshot.val().Destination+"</div>");
+		// $('.FreqFill').append("<div class='well'>"+
+		// 	childSnapshot.val().FirstTrainTime+"</div>");
+		// $('.NextFill').append("<div class='well'>"+
+		// 	childSnapshot.val().Duration+"</div>");
 
 		
 
