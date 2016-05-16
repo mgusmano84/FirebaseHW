@@ -7,6 +7,14 @@ $(document).ready(function () {
 	var firstTime =0;
 	var duration=0;
 
+	// var randomTime = "23:35";
+	// var convertedDate = moment(new Date(randomTime));
+	// console.log(convertedDate);
+	// var gg= moment().hour(8).minute(24);
+	// moment().hour().minute();
+	// console.log(gg);
+
+
 
 	$(".clickHere").on("click", function() {
 		trainname= $('.addTrain').val().trim();
@@ -42,8 +50,8 @@ $(document).ready(function () {
 
 		$('.createData').append("<div class='col-md-3'>"+
 			childSnapshot.val().Name+"</div><div class='col-md-3'>"+
-			childSnapshot.val().Destination+"</div><div class='col-md-2'><span id='age'> "+
-			childSnapshot.val().FirstTrainTime+" </div><div class='col-md-2'>"+
+			childSnapshot.val().Destination+"</div><div class='col-md-2'>"+
+			childSnapshot.val().Duration+" </div><div class='col-md-2'>"+
 			childSnapshot.val().Duration+"</div><div class='col-md-2'>"+
 			"test"+"</div>");
 
