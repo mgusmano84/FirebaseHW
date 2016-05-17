@@ -10,8 +10,7 @@ $(document).ready(function () {
 	// var randomTime = "23:35";
 	// var convertedDate = moment(new Date(randomTime));
 	// console.log(convertedDate);
-	// var gg= moment().hour(8).minute(24);
-	// moment().hour().minute();
+
 	// console.log(gg);
 
 
@@ -52,7 +51,7 @@ $(document).ready(function () {
 			childSnapshot.val().Name+"</div><div class='col-md-3'>"+
 			childSnapshot.val().Destination+"</div><div class='col-md-2'>"+
 			childSnapshot.val().Duration+" </div><div class='col-md-2'>"+
-			childSnapshot.val().Duration+"</div><div class='col-md-2'>"+
+			childSnapshot.val().FirstTrainTime+"</div><div class='col-md-2'>"+
 			"test"+"</div>");
 
 
