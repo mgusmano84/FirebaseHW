@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+	//sets firebase
 	var inputInfo= new Firebase("https://trainhome.firebaseio.com/");
 
 	var trainname="";
@@ -7,6 +8,10 @@ $(document).ready(function () {
 	var firstTime =0;
 	var duration=0;
 
+	// var check= "12:56";
+
+	// var convertedTime = moment(check, "hh:mm");
+	// console.log(convertedTime)
 	// var randomTime = "23:35";
 	// var convertedDate = moment(new Date(randomTime));
 	// console.log(convertedDate);
@@ -14,19 +19,28 @@ $(document).ready(function () {
 	// console.log(gg);
 
 
-
+	//sets click funtion from from to reset vars
 	$(".clickHere").on("click", function() {
 		trainname= $('.addTrain').val().trim();
 		destination= $('.addDestination').val().trim();
 		firstTime= $('.addFirst').val().trim();
 		duration= $('.addDuration').val().trim();
 
+		console.log(trainname);
+		console.log(destination);
+		console.log(firstTime);
+		console.log(duration);
 
-		// console.log(trainname);
-		// console.log(destination);
-		// console.log(firstTime);
-		// console.log(duration);
+		// var convertedTime = moment(firstTime , "hh:mm");
+		// console.log(convertedTime);
+		// var currentTime = moment();
+		// console.log("Current Time is" + moment(currentTime).format("hh:mm"));
+		// var diffTime = moment().diff(moment(convertedTime), "minutes");
+		// console.log("Difference in Time is: " + diffTime);
+		// var tRemainder = diffTime % duration; 
+		// console.log("time remaining: " + tRemainder);
 
+		//pushes to firebase
 		inputInfo.push({
 			Name: trainname,
 			Destination: destination,
@@ -35,9 +49,16 @@ $(document).ready(function () {
 			dateadded: Firebase.ServerValue.TIMESTAMP,
 		})
 
+		//clear input Values
+		$('.addTrain').val('');
+		$('.addDestination').val('');
+		$('.addFirst').val('');
+		$('.addDuration').val('');
+
 		return false;
 	});
 
+	//grabs from firebase to create new divs in .createData div
 	inputInfo.on("child_added", function(childSnapshot) {
 
 
@@ -53,18 +74,6 @@ $(document).ready(function () {
 			childSnapshot.val().Duration+" </div><div class='col-md-2'>"+
 			childSnapshot.val().FirstTrainTime+"</div><div class='col-md-2'>"+
 			"test"+"</div>");
-
-
-
-		// $('.trainNameFill').append("<div class='well'>"+
-		// 	childSnapshot.val().Name+"</div>");
-		// $('.DestinationFill').append("<div class='well'>"+
-		// 	childSnapshot.val().Destination+"</div>");
-		// $('.FreqFill').append("<div class='well'>"+
-		// 	childSnapshot.val().FirstTrainTime+"</div>");
-		// $('.NextFill').append("<div class='well'>"+
-		// 	childSnapshot.val().Duration+"</div>");
-
 		
 
 
@@ -77,9 +86,3 @@ $(document).ready(function () {
 
 
 });
-
-
-	// <span id='email'> "+
-	// 		childSnapshot.val().email+" </span><span id='age'> "+
-	// 		childSnapshot.val().age+" </span><span id='comment'> "+
-	// 		childSnapshot.val().comment+" </span></div>")
