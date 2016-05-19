@@ -31,6 +31,18 @@ $(document).ready(function () {
 		console.log(firstTime);
 		console.log(duration);
 
+		var convertedTime = moment(firstTime,"hh:mm").subtract(1, "years");
+		console.log(convertedTime);
+
+		var currentTime = moment();
+		console.log("Current Time is " + moment(currentTime).format("hh:mm"));
+
+		var diffTime = moment().diff(moment(convertedTime), "minutes");
+		console.log("Difference in Time is: " + diffTime);
+
+		var tRemainder = diffTime % duration; 
+		console.log(tRemainder);
+
 		// var convertedTime = moment(firstTime , "hh:mm");
 		// console.log(convertedTime);
 		// var currentTime = moment();
