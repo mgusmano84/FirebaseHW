@@ -17,34 +17,6 @@ $(document).ready(function () {
 		firstTime= $('.addFirst').val().trim();
 		freq= $('.addDuration').val().trim(); 
 
-	
-		//pushes to firebase
-		inputInfo.push({
-			Name: trainname,
-			Destination: destination,
-			FirstTrainTime: firstTime,
-			Freq: freq,
-			dateadded: Firebase.ServerValue.TIMESTAMP,
-		})
-
-		//clear input Values
-		$('.addTrain').val('');
-		$('.addDestination').val('');
-		$('.addFirst').val('');
-		$('.addDuration').val('');
-
-		return false;
-	});
-
-	//grabs from firebase to create new divs in .createData div
-	inputInfo.on("child_added", function(childSnapshot) {
-
-
-		console.log(childSnapshot.val().Name);
-		console.log(childSnapshot.val().Destination);
-		console.log(childSnapshot.val().FirstTrainTime);
-		console.log(childSnapshot.val().Freq);
-
 		//Moments Logic
 
 		//This make sure the time is before by going back 1 year
@@ -75,14 +47,45 @@ $(document).ready(function () {
 		var minutesNext = trainMin;
 		console.log(minutesNext);
 
+	
+		//pushes to firebase
+		inputInfo.push({
+			Name: trainname,
+			Destination: destination,
+			FirstTrainTime: firstTime,
+			Freq: freq,
+			NextArrival: nextArrival,
+			MinutesNext: minutesNext,
+			dateadded: Firebase.ServerValue.TIMESTAMP,
+		})
+
+		//clear input Values
+		$('.addTrain').val('');
+		$('.addDestination').val('');
+		$('.addFirst').val('');
+		$('.addDuration').val('');
+
+		return false;
+	});
+
+	//grabs from firebase to create new divs in .createData div
+	inputInfo.on("child_added", function(childSnapshot) {
+
+
+		console.log(childSnapshot.val().Name);
+		console.log(childSnapshot.val().Destination);
+		console.log(childSnapshot.val().FirstTrainTime);
+		console.log(childSnapshot.val().Freq);
+
+	
 		//This creates the new lines of data being pulled from firebase and moments logic
 		$('.createData').append("<div class='col-md-3'>"+
 			childSnapshot.val().Name+"</div><div class='col-md-3'>"+
 			childSnapshot.val().Destination+"</div><div class='col-md-2'>"+
 			childSnapshot.val().Freq+" </div><div class='col-md-2'>"+
-			nextArrival+"</div><div class='col-md-2'>"+
-			minutesNext+"</div>");
-		
+			childSnapshot.val().NextArrival+"</div><div class='col-md-2'>"+
+			childSnapshot.val().MinutesNext+"</div>");
+
 
 		//If errors arise
 		}, function(errorObject){
