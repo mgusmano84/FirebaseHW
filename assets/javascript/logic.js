@@ -6,7 +6,7 @@ $(document).ready(function () {
 	var trainname="";
 	var destination="";
 	var firstTime =0;
-	var duration=0;
+	var freq=0;
 
 	// var check= "12:56";
 
@@ -24,24 +24,38 @@ $(document).ready(function () {
 		trainname= $('.addTrain').val().trim();
 		destination= $('.addDestination').val().trim();
 		firstTime= $('.addFirst').val().trim();
-		duration= $('.addDuration').val().trim();
+		freq= $('.addDuration').val().trim(); 
 
 		console.log(trainname);
 		console.log(destination);
 		console.log(firstTime);
-		console.log(duration);
+		console.log(freq); 
 
+		//This make sure the time is before by going back 1 year
 		var convertedTime = moment(firstTime,"hh:mm").subtract(1, "years");
 		console.log(convertedTime);
-
+		
+		//Sets current time
 		var currentTime = moment();
 		console.log("Current Time is " + moment(currentTime).format("hh:mm"));
-
+		
+		//Takes the difference between the cuurent time and converted time
 		var diffTime = moment().diff(moment(convertedTime), "minutes");
 		console.log("Difference in Time is: " + diffTime);
-
-		var tRemainder = diffTime % duration; 
+		
+		//This will set the time apart between trains
+		var tRemainder = diffTime % freq; 
 		console.log(tRemainder);
+
+		//Minutes until the train
+		var trainMin = freq - tRemainder;
+		console.log("MINUTES TILL TRAIN: " + trainMin);
+
+		//Next train
+		// var nextTrain = moment().add(trainMin, "minutes")
+		// console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+		// var nextArrival = nextTrain.format("hh:mm");
+		// var MinutesNext = trainMin;
 
 		// var convertedTime = moment(firstTime , "hh:mm");
 		// console.log(convertedTime);
@@ -57,7 +71,7 @@ $(document).ready(function () {
 			Name: trainname,
 			Destination: destination,
 			FirstTrainTime: firstTime,
-			Duration: duration,
+			Freq: freq,
 			dateadded: Firebase.ServerValue.TIMESTAMP,
 		})
 
@@ -78,12 +92,12 @@ $(document).ready(function () {
 		console.log(childSnapshot.val().Name);
 		console.log(childSnapshot.val().Destination);
 		console.log(childSnapshot.val().FirstTrainTime);
-		console.log(childSnapshot.val().Duration);
+		console.log(childSnapshot.val().Freq);
 
 		$('.createData').append("<div class='col-md-3'>"+
 			childSnapshot.val().Name+"</div><div class='col-md-3'>"+
 			childSnapshot.val().Destination+"</div><div class='col-md-2'>"+
-			childSnapshot.val().Duration+" </div><div class='col-md-2'>"+
+			childSnapshot.val().Freq+" </div><div class='col-md-2'>"+
 			childSnapshot.val().FirstTrainTime+"</div><div class='col-md-2'>"+
 			"test"+"</div>");
 		
